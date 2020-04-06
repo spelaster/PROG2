@@ -1,0 +1,24 @@
+import re
+import csv
+
+with open('knjige21.html', encoding='utf-8') as datoteka:
+    vsebina = datoteka.read()
+
+vzorec = re.compile(
+    r'<a title="(?P<naslov>[^"|(]*[^ |"|(]).*?'
+    r'<span itemprop="name">="name">(?P<avtor>[^>]*).*?'
+    r'published (?P<leto>[^"|(]*[^ |"|(]).*?'
+    r'avg rating (?P<ocena>[^"|(]*[^ |"|(])'
+    ,
+    re.DOTALL
+)
+
+with open('knjige21.csv', 'w') as datoteka:
+    writer = csv.DictWriter(datoteka, ['naslov', 'avtor', 'leto', 'ocena'])
+    writer.writeheader()
+
+    for ujemanje in vzorec.finditer(vsebina):
+        print(ujemanje)
+        print(ujemanje.groupdict())
+        writer.writerow([ujemanje.groupdict()])
+                
