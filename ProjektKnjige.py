@@ -32,6 +32,10 @@ def cisti_podatki(podatki):
     podatki_knjige['ocena'] = float(podatki_knjige['ocena'].replace(',', '.'))
     return podatki_knjige
 
+for i in range(1, 11):
+    url = ('https://www.goodreads.com/shelf/show/21st-century?page={}').format(i)
+    orodja.shrani_spletno_stran(url, 'stran-{}.html'.format(i))
+
 podatki = []
 vsebina = orodja.vsebina_datoteke('knjige21.html')
 for ujemanje in vzorec.finditer(vsebina):
