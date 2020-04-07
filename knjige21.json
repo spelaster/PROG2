@@ -1,0 +1,302 @@
+[
+    {
+        "leto": 2005,
+        "naslov": "Harry Potter and the Half-Blood Prince",
+        "ocena": 4.57,
+        "avtor": "J.K. Rowling"
+    },
+    {
+        "leto": 2007,
+        "naslov": "Harry Potter and the Deathly Hallows",
+        "ocena": 4.62,
+        "avtor": "J.K. Rowling"
+    },
+    {
+        "leto": 2008,
+        "naslov": "The Hunger Games",
+        "ocena": 4.33,
+        "avtor": "Suzanne Collins"
+    },
+    {
+        "leto": 2003,
+        "naslov": "Harry Potter and the Order of the Phoenix",
+        "ocena": 4.5,
+        "avtor": "J.K. Rowling"
+    },
+    {
+        "leto": 2000,
+        "naslov": "Harry Potter and the Goblet of Fire",
+        "ocena": 4.56,
+        "avtor": "J.K. Rowling"
+    },
+    {
+        "leto": 2012,
+        "naslov": "The Fault in Our Stars",
+        "ocena": 4.22,
+        "avtor": "John Green"
+    },
+    {
+        "leto": 2006,
+        "naslov": "The Road",
+        "ocena": 3.97,
+        "avtor": "Cormac McCarthy"
+    },
+    {
+        "leto": 2009,
+        "naslov": "Catching Fire",
+        "ocena": 4.29,
+        "avtor": "Suzanne Collins"
+    },
+    {
+        "leto": 2005,
+        "naslov": "The Book Thief",
+        "ocena": 4.37,
+        "avtor": "Markus Zusak"
+    },
+    {
+        "leto": 2005,
+        "naslov": "Never Let Me Go",
+        "ocena": 3.82,
+        "avtor": "Kazuo Ishiguro"
+    },
+    {
+        "leto": 2010,
+        "naslov": "Mockingjay",
+        "ocena": 4.04,
+        "avtor": "Suzanne Collins"
+    },
+    {
+        "leto": 2003,
+        "naslov": "The Curious Incident of the Dog in the Night-Time",
+        "ocena": 3.88,
+        "avtor": "Mark Haddon"
+    },
+    {
+        "leto": 2012,
+        "naslov": "Gone Girl",
+        "ocena": 4.07,
+        "avtor": "Gillian Flynn"
+    },
+    {
+        "leto": 2013,
+        "naslov": "The Goldfinch",
+        "ocena": 3.91,
+        "avtor": "Donna Tartt"
+    },
+    {
+        "leto": 2001,
+        "naslov": "American Gods",
+        "ocena": 4.11,
+        "avtor": "Neil Gaiman"
+    },
+    {
+        "leto": 2005,
+        "naslov": "The Girl with the Dragon Tattoo",
+        "ocena": 4.13,
+        "avtor": "Stieg Larsson"
+    },
+    {
+        "leto": 2003,
+        "naslov": "The Da Vinci Code",
+        "ocena": 3.84,
+        "avtor": "Dan Brown"
+    },
+    {
+        "leto": 2001,
+        "naslov": "Atonement",
+        "ocena": 3.9,
+        "avtor": "Ian McEwan"
+    },
+    {
+        "leto": 2001,
+        "naslov": "Life of Pi",
+        "ocena": 3.91,
+        "avtor": "Yann Martel"
+    },
+    {
+        "leto": 2003,
+        "naslov": "The Kite Runner",
+        "ocena": 4.29,
+        "avtor": "Khaled Hosseini"
+    },
+    {
+        "leto": 2005,
+        "naslov": "Twilight",
+        "ocena": 3.59,
+        "avtor": "Stephenie Meyer"
+    },
+    {
+        "leto": 2004,
+        "naslov": "Cloud Atlas",
+        "ocena": 4.02,
+        "avtor": "David Mitchell"
+    },
+    {
+        "leto": 2015,
+        "naslov": "The Girl on the Train",
+        "ocena": 3.92,
+        "avtor": "Paula Hawkins"
+    },
+    {
+        "leto": 2016,
+        "naslov": "Harry Potter and the Cursed Child: Parts One and Two",
+        "ocena": 3.64,
+        "avtor": "John Tiffany"
+    },
+    {
+        "leto": 2002,
+        "naslov": "Kafka on the Shore",
+        "ocena": 4.14,
+        "avtor": "Haruki Murakami"
+    },
+    {
+        "leto": 2012,
+        "naslov": "The Martian",
+        "ocena": 4.4,
+        "avtor": "Andy Weir"
+    },
+    {
+        "leto": 2013,
+        "naslov": "The Ocean at the End of the Lane",
+        "ocena": 4.0,
+        "avtor": "Neil Gaiman"
+    },
+    {
+        "leto": 2001,
+        "naslov": "The Shadow of the Wind",
+        "ocena": 4.27,
+        "avtor": "Carlos Ruiz Zafón"
+    },
+    {
+        "leto": 2009,
+        "naslov": "The Help",
+        "ocena": 4.47,
+        "avtor": "Kathryn Stockett"
+    },
+    {
+        "leto": 2011,
+        "naslov": "The Sense of an Ending",
+        "ocena": 3.72,
+        "avtor": "Julian Barnes"
+    },
+    {
+        "leto": 2011,
+        "naslov": "Ready Player One",
+        "ocena": 4.27,
+        "avtor": "Ernest Cline"
+    },
+    {
+        "leto": 2003,
+        "naslov": "The Time Traveler's Wife",
+        "ocena": 3.97,
+        "avtor": "Audrey Niffenegger"
+    },
+    {
+        "leto": 2011,
+        "naslov": "Divergent",
+        "ocena": 4.2,
+        "avtor": "Veronica Roth"
+    },
+    {
+        "leto": 2002,
+        "naslov": "Middlesex",
+        "ocena": 4.0,
+        "avtor": "Jeffrey Eugenides"
+    },
+    {
+        "leto": 2013,
+        "naslov": "Americanah",
+        "ocena": 4.3,
+        "avtor": "Chimamanda Ngozi Adichie"
+    },
+    {
+        "leto": 2002,
+        "naslov": "The Lovely Bones",
+        "ocena": 3.81,
+        "avtor": "Alice Sebold"
+    },
+    {
+        "leto": 2005,
+        "naslov": "Extremely Loud and Incredibly Close",
+        "ocena": 3.98,
+        "avtor": "Jonathan Safran Foer"
+    },
+    {
+        "leto": 2003,
+        "naslov": "Oryx and Crake",
+        "ocena": 4.01,
+        "avtor": "Margaret Atwood"
+    },
+    {
+        "leto": 2013,
+        "naslov": "The Cuckoo's Calling",
+        "ocena": 3.86,
+        "avtor": "Robert Galbraith"
+    },
+    {
+        "leto": 2010,
+        "naslov": "Room",
+        "ocena": 4.06,
+        "avtor": "Emma Donoghue"
+    },
+    {
+        "leto": 2014,
+        "naslov": "All the Light We Cannot See",
+        "ocena": 4.33,
+        "avtor": "Anthony Doerr"
+    },
+    {
+        "leto": 2011,
+        "naslov": "Miss Peregrine's Home for Peculiar Children",
+        "ocena": 3.91,
+        "avtor": "Ransom Riggs"
+    },
+    {
+        "leto": 2005,
+        "naslov": "A Feast for Crows",
+        "ocena": 4.14,
+        "avtor": "George R.R. Martin"
+    },
+    {
+        "leto": 2004,
+        "naslov": "Jonathan Strange &amp; Mr Norrell",
+        "ocena": 3.82,
+        "avtor": "Susanna Clarke"
+    },
+    {
+        "leto": 2017,
+        "naslov": "Eleanor Oliphant Is Completely Fine",
+        "ocena": 4.3,
+        "avtor": "Gail Honeyman"
+    },
+    {
+        "leto": 2007,
+        "naslov": "The Brief Wondrous Life of Oscar Wao",
+        "ocena": 3.9,
+        "avtor": "Junot Díaz"
+    },
+    {
+        "leto": 2005,
+        "naslov": "Looking for Alaska",
+        "ocena": 4.04,
+        "avtor": "John Green"
+    },
+    {
+        "leto": 2010,
+        "naslov": "A Visit from the Goon Squad",
+        "ocena": 3.66,
+        "avtor": "Jennifer Egan"
+    },
+    {
+        "leto": 2000,
+        "naslov": "White Teeth",
+        "ocena": 3.77,
+        "avtor": "Zadie Smith"
+    },
+    {
+        "leto": 2017,
+        "naslov": "The Hate U Give",
+        "ocena": 4.51,
+        "avtor": "Angie Thomas"
+    }
+]
