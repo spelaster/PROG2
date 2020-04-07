@@ -6,9 +6,9 @@ with open('knjige21.html', encoding='utf-8') as datoteka:
 
 vzorec = re.compile(
     r'<a title="(?P<naslov>[^"|(]*[^ |"|(]).*?'
-    r'<span itemprop="name">="name">(?P<avtor>[^>]*).*?'
-    r'published (?P<leto>[^"|(]*[^ |"|(]).*?'
-    r'avg rating (?P<ocena>[^"|(]*[^ |"|(])'
+    r'<span itemprop="name">(?P<avtor>.+?)</span></a>.*?'
+    r'avg rating (?P<ocena>\d{1}\.\d{2}) —.*?'
+    r'published (?P<leto>\d{4}).*?</span>'
     ,
     re.DOTALL
 )
@@ -18,7 +18,6 @@ with open('knjige21.csv', 'w') as datoteka:
     writer.writeheader()
 
     for ujemanje in vzorec.finditer(vsebina):
-        print(ujemanje)
-        print(ujemanje.groupdict())
-        writer.writerow([ujemanje.groupdict()])
+        print(ujemanje.group(1), " ", ujemanje.group(2), " ", ujemanje.group(3), ujemanje.group(4))
+        writer.writerow(ujemanje.groupdict())
                 
