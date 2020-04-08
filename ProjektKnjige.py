@@ -34,14 +34,13 @@ vzorec = re.compile(
 
 def cisti_podatki(podatki):
     podatki_knjige = podatki.groupdict()
-    #podatki_knjige['ocena'] = float(podatki_knjige['ocena'].replace(',', '.'))
-    #podatki_knjige['score'] = float(podatki_knjige['score'].replace(',', '.'))
-    #podatki_knjige['glasovalci'] = int(podatki_knjige['glasovalci'])
+    podatki_knjige['ocena'] = float(podatki_knjige['ocena'].replace(',', '.'))
+    podatki_knjige['score'] = float(podatki_knjige['score'].replace(',', '.'))
+    podatki_knjige['glasovalci'] = int(podatki_knjige['glasovalci'].replace(",", ""))
     return podatki_knjige
 
 for i in range(1, 11):
     url = ('https://www.goodreads.com/list/show/7.Best_Books_of_the_21st_Century?page={}').format(i)
-    #url = ('https://www.goodreads.com/shelf/show/21st-century?page={}').format(i)
     orodja.shrani_spletno_stran(url, 'stran-{}.html'.format(i))
 
 podatki = []
@@ -51,4 +50,4 @@ for ujemanje in vzorec.finditer(vsebina):
     print(podatki_knjige)
     podatki.append(podatki_knjige)
 zapisi_csv(podatki, ['naslov', 'avtor', 'ocena', 'score', 'glasovalci'], 'knjige21.csv')
-zapisi_json(podatki, 'filmi.json')
+zapisi_json(podatki, 'knjige.json')
