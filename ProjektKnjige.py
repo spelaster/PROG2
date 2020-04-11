@@ -26,6 +26,7 @@ vzorec = re.compile(
     #povprečna ocena
     r' (?P<ocena>\d{1}\.\d{2}) avg rating.*?'
     #ocena na podlagi števila glasovalcev in njihovih ocen
+    #r'(?P<score>.*?).*?'
     r'score: (?P<score>.*?)</a>.*?'
     #stevilo glasovalcev
     r'>(?P<glasovalci>[\d|,]*) people voted.*?',
@@ -36,7 +37,7 @@ def cisti_podatki(podatki):
     podatki_knjige = podatki.groupdict()
     podatki_knjige['ocena'] = float(podatki_knjige['ocena'].replace(',', '.'))
     podatki_knjige['score'] = float(podatki_knjige['score'].replace(',', '.'))
-    podatki_knjige['glasovalci'] = int(podatki_knjige['glasovalci'].replace(",", ""))
+    podatki_knjige['glasovalci'] = int(podatki_knjige['glasovalci'].replace(',', ''))
     return podatki_knjige
 
 for i in range(1, 11):
@@ -44,10 +45,12 @@ for i in range(1, 11):
     orodja.shrani_spletno_stran(url, 'stran-{}.html'.format(i))
 
 podatki = []
-vsebina = orodja.vsebina_datoteke('knjige21.html')
-for ujemanje in vzorec.finditer(vsebina):
-    podatki_knjige = cisti_podatki(ujemanje)
-    print(podatki_knjige)
-    podatki.append(podatki_knjige)
+for stran in range(1,11):
+    vsebina = orodja.vsebina_datoteke('stran-{}.html'.format(stran))
+    for ujemanje in vzorec.finditer(vsebina):
+        podatki_knjige = cisti_podatki(ujemanje)
+        podatki.append(podatki_knjige)
 zapisi_csv(podatki, ['naslov', 'avtor', 'ocena', 'score', 'glasovalci'], 'knjige21.csv')
 zapisi_json(podatki, 'knjige.json')
+
+print("&quot;A Problem from Hell&quot;: America and the Age of Genocide")
