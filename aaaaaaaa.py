@@ -117,3 +117,78 @@ def avtor_knjige(avtor):
             >>> avtor_knjige("Markus Zusak")
             Avtor/ica Markus Zusak je napisal/a dve deli z naslovoma The Book Thief, I Am the Messenger, ki sta v datoteki "knjige21.csv".
         '''
+
+def izpisi_knjige_z_oceno_vsaj(ocena):
+    ''' Funkcija izpiše naslove, avtorje ter oceno knjig, ki imajo oceno enako ali višjo vnešeni oceni. '''
+    stevec = 0
+    with open('knjige21.csv', encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        stevec = 0
+        knjige = []
+        for vrstica in csv_reader:
+            if stevec == 0: # prve vrstice z imeni stolpcev ne štejemo 
+                pass
+            elif len(vrstica) == 0: # preskočimo prazne vrstice
+                pass          
+            else:
+                if float(vrstica[2]) >= float(ocena): # če je ocena višja ali enaka željeni oceni
+                    knjige.append((vrstica[0], vrstica[1], vrstica[2])) # dodamo naslov, avtorja in oceno v seznam 
+            stevec += 1
+        print(f'Knjige z oceno, višjo ali enako {ocena}, so: {knjige}.')
+
+    '''
+        >>> izpisi_knjige_nad_oceno(4.6)
+        Knjige z oceno, višjo ali enako 4.6, so: [('Harry Potter and the Deathly Hallows', 'J.K. Rowling', '4.62'), ('Una Historia de Ayer', 'Sergio Cobo', '4.64'),
+        ('The Way of Kings', 'Brandon Sanderson', '4.65'), ('Meeting With Christ and Other Poems', 'Deepak Chaswal', '4.6'),
+        ('TIME TRAVEL EXPERIENCES: In a Sense, we all are Time Travelers! We are surviving each and every Active Time-Point in this Timeline.......', 'Aldrin Mathew', '4.8'),
+        ('A Court of Mist and Fury', 'Sarah J. Maas', '4.65'), ('Speedy Reads', 'Chris-Jean Clarke', '4.74'), ('The Code: The Assiduous Quest of Tobias Hopkins - Part Two', 'James Faro', '4.86'),
+        ('Trueman Bradley - The Next Great Detective', 'Alexei Maxim Russell', '4.75'), ('Laços fortes e decisões difíceis', 'Graça Jacinto', '4.73'),
+        ('Never Go With Your Gut: How Pioneering Leaders Make the Best Decisions and Avoid Business Disasters', 'Gleb Tsipursky', '4.65'), ('The Years Distilled: Verses', 'Dennis Sharpe', '4.87'),
+        ('Words of Radiance', 'Brandon Sanderson', '4.76'), ("Regular People of The Weak: A Rebel's Experience With The Spiritual Chief of Poets", 'Shareef Mabrouk', '4.78'),
+        ("I'm Unapologetically Single And More Than OK With It", 'Justin Ho', '5.0'), ('The Tainted Trust', 'Stephen Douglass', '4.65'), ('Goals, Obstacles And Gratitude', 'Justin Ho', '5.0'),
+        ('10% Everything', 'Justin Ho', '5.0'), ('Self-Improvement And Success', 'Justin Ho', '5.0'), ('Life Amplifiers Daily Devotional', 'Justin Ho', '5.0'),
+        ('Dream Big, Live Bigger', 'Justin Ho', '5.0'), ('Self-Esteem - Self = Esteem', 'Justin Ho', '5.0'), ('The Fish the Fighters and the Song-Girl', 'Janet E. Morris', '4.62'),
+        ('The Old Has Gone, The New Is Here', 'Justin Ho', '5.0'), ('How To Develop A Million Dollar Mindset', 'Justin Ho', '5.0'), ('Stop Auto-Piloting', 'Justin Ho', '5.0'),
+        ('Your Skill, Your Wealth Builder', 'Justin Ho', '5.0')].
+
+
+        >>> izpisi_knjige_z_oceno_vsaj(5)
+        Knjige z oceno, višjo ali enako 5, so: [("I'm Unapologetically Single And More Than OK With It", 'Justin Ho', '5.0'), ('Goals, Obstacles And Gratitude', 'Justin Ho', '5.0'),
+        ('10% Everything', 'Justin Ho', '5.0'), ('Self-Improvement And Success', 'Justin Ho', '5.0'), ('Life Amplifiers Daily Devotional', 'Justin Ho', '5.0'),
+        ('Dream Big, Live Bigger', 'Justin Ho', '5.0'), ('Self-Esteem - Self = Esteem', 'Justin Ho', '5.0'), ('The Old Has Gone, The New Is Here', 'Justin Ho', '5.0'),
+        ('How To Develop A Million Dollar Mindset', 'Justin Ho', '5.0'), ('Stop Auto-Piloting', 'Justin Ho', '5.0'), ('Your Skill, Your Wealth Builder', 'Justin Ho', '5.0')].
+        '''
+
+# če upoštevamo še glasove, dobimo malo drugačno sliko:
+def izpisi_knjige_z_oceno_vsaj(ocena, glasovi):
+    ''' Funkcija izpiše naslove, avtorje, oceno in število glasov knjig,
+        ki imajo oceno enako ali višjo vnešeni oceni in zadostno število glasov. '''
+    stevec = 0
+    with open('knjige21.csv', encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        stevec = 0
+        knjige = []
+        for vrstica in csv_reader:
+            if stevec == 0: # prve vrstice z imeni stolpcev ne štejemo 
+                pass
+            elif len(vrstica) == 0: # preskočimo prazne vrstice
+                pass          
+            else:
+                if (float(vrstica[2]) >= float(ocena)) and (float(vrstica[4]) >= float(glasovi)):
+                    # če je ocena višja ali enaka željeni oceni in je število glasov zadostno
+                    knjige.append((vrstica[0], vrstica[1], vrstica[2], vrstica[4])) # dodamo naslov, avtorja, oceno in glasove v seznam 
+            stevec += 1
+        print(f'Knjige z oceno, višjo ali enako {ocena}, in z vsaj {glasovi} glasovi so: {knjige}.')
+
+        '''
+        >>> izpisi_knjige_z_oceno_vsaj(4.6, 100)
+        Knjige z oceno, višjo ali enako 4.6, in z vsaj 100 glasovi so: [('Harry Potter and the Deathly Hallows', 'J.K. Rowling', '4.62', '3993'),
+        ('Una Historia de Ayer', 'Sergio Cobo', '4.64', '130')].
+        '''
+
+
+
+
+
+
+        
