@@ -188,7 +188,117 @@ def izpisi_knjige_z_oceno_vsaj(ocena, glasovi):
 
 
 
+def stevilo_z_oceno(ocena_spodaj, ocena_zgoraj):
+    ''' vrne število knjig, ki se nahajajo med določenima ocenama - od spodnje do vključno zgornje). '''
+    stevec = 0
+    with open('knjige21.csv', encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        stevec = 0
+        koliko = 0
+        knjige = []
+        for vrstica in csv_reader:
+            if stevec == 0: # prve vrstice z imeni stolpcev ne štejemo 
+                pass
+            elif len(vrstica) == 0: # preskočimo prazne vrstice
+                pass          
+            else:
+                if (float(vrstica[2]) > float(ocena_spodaj)) and (float(vrstica[2]) <= float(ocena_zgoraj)):
+                    # če je ocena višja od ocena_spodaj in nižja ali enaka ocena_zgoraj
+                    # knjige.append((vrstica[0], vrstica[1], vrstica[2])) # dodamo naslov, avtorja in oceno v seznam
+                    koliko += 1
+            stevec += 1
+        print(f'Knjig z oceno med {ocena_spodaj} in {ocena_zgoraj} je {koliko}.')
 
+
+        '''
+        >>> stevilo_z_oceno(4, 4.6)
+        Knjig z oceno med 4 in 4.6 je 492.
+        '''
+
+def razpored_knjig_po_oceni(razmik):
+    ''' Vrne koliko knjig se nahaja med določenima ocenama, ocene so razporejene po danem razmaku.
+        Upoštevamo, da je najvišja ocena enaka 5. '''
+    i = 0
+    sez = []
+    while i + razmik <=5:
+        j = i + razmik
+        sez.append(stevilo_z_oceno(i, j))
+        i += razmik
+    '''
+    >>> razpored_knjig_po_oceni(0.5)
+    Knjig z oceno med 0 in 0.5 je 0.
+    Knjig z oceno med 0.5 in 1.0 je 0.
+    Knjig z oceno med 1.0 in 1.5 je 0.
+    Knjig z oceno med 1.5 in 2.0 je 0.
+    Knjig z oceno med 2.0 in 2.5 je 0.
+    Knjig z oceno med 2.5 in 3.0 je 0.
+    Knjig z oceno med 3.0 in 3.5 je 36.
+    Knjig z oceno med 3.5 in 4.0 je 446.
+    Knjig z oceno med 4.0 in 4.5 je 475.
+    Knjig z oceno med 4.5 in 5.0 je 43.
+
+    Vidimo, da z oceno, manjšo od 3.0, ni ocenjena nobena knjiga.
+    '''
+
+def razpored_knjig_ocena(razmik):
+    ''' Vrne koliko knjig se nahaja med določenima ocenama, ocene so razporejene po danem razmaku.
+        Upoštevamo, da je najnižja ocena enaka 3 in najvišja ocena enaka 5.'''
+    i = 3
+    sez = []
+    while i + razmik <=5:
+        j = round((i + razmik),2)
+        sez.append(stevilo_z_oceno(i, j))
+        i = round((i + razmik),2)
+
+    '''
+    >>> razpored_knjig_ocena(0.1)
+    Knjig z oceno med 3 in 3.1 je 2.
+    Knjig z oceno med 3.1 in 3.2 je 1.
+    Knjig z oceno med 3.2 in 3.3 je 5.
+    Knjig z oceno med 3.3 in 3.4 je 6.
+    Knjig z oceno med 3.4 in 3.5 je 22.
+    Knjig z oceno med 3.5 in 3.6 je 30.
+    Knjig z oceno med 3.6 in 3.7 je 60.
+    Knjig z oceno med 3.7 in 3.8 je 74.
+    Knjig z oceno med 3.8 in 3.9 je 120.
+    Knjig z oceno med 3.9 in 4.0 je 162.
+    Knjig z oceno med 4.0 in 4.1 je 159.
+    Knjig z oceno med 4.1 in 4.2 je 120.
+    Knjig z oceno med 4.2 in 4.3 je 93.
+    Knjig z oceno med 4.3 in 4.4 je 68.
+    Knjig z oceno med 4.4 in 4.5 je 35.
+    Knjig z oceno med 4.5 in 4.6 je 17.
+    Knjig z oceno med 4.6 in 4.7 je 7.
+    Knjig z oceno med 4.7 in 4.8 je 6.
+    Knjig z oceno med 4.8 in 4.9 je 2.
+    Knjig z oceno med 4.9 in 5.0 je 11.
+
+
+    >>> razpored_knjig_ocena(0.25)
+    Knjig z oceno med 3 in 3.25 je 6.
+    Knjig z oceno med 3.25 in 3.5 je 30.
+    Knjig z oceno med 3.5 in 3.75 je 126.
+    Knjig z oceno med 3.75 in 4.0 je 320.
+    Knjig z oceno med 4.0 in 4.25 je 322.
+    Knjig z oceno med 4.25 in 4.5 je 153.
+    Knjig z oceno med 4.5 in 4.75 je 27.
+    Knjig z oceno med 4.75 in 5.0 je 16.
+    '''
+
+##import matplotlib.pyplot as plt
+##
+### Data to plot
+##labels = '3-3.25', '3.25-3.5', '3.5-3.75', '3.75-4.0', '4.0-4.25', '4.25-4.5', '4.5-4.75', '4.75-5.0'
+##sizes = [6, 30, 126, 320, 322, 153, 27, 16]
+##colors = ['gold', 'yellowgreen', 'yellow', 'green', 'lightcoral', 'lightskyblue', 'blue' ]
+##explode = (0.1, 0, 0, 0, 0, 0, 0)  # explode 1st slice
+##
+### Plot
+##plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+##autopct='%1.1f%%', shadow=True, startangle=140)
+##
+##plt.axis('equal')
+##plt.show()
 
 
         
