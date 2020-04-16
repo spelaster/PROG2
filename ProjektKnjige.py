@@ -328,6 +328,9 @@ def prikaz_knjig_po_abecedi():
      
     # Ustvarimo oznake na x-osi
     plt.xticks(y_pos, os)
+        
+    # poimenujemo y -os
+    plt.ylabel('število knjig')
      
     # Prikažemo graf
     plt.show()
