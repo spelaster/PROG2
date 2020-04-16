@@ -15,10 +15,10 @@ def pripravi_imenik(ime_datoteke):
 def shrani_spletno_stran(url, ime_datoteke, vsili_prenos=False):
     '''Vsebino strani na danem naslovu shrani v datoteko z danim imenom.'''
     try:
-        print('Shranjujem {} ...'.format(url), end='')
+        #print('Shranjujem {} ...'.format(url), end='')
         sys.stdout.flush()
         if os.path.isfile(ime_datoteke) and not vsili_prenos:
-            print('shranjeno že od prej!')
+            #print('shranjeno že od prej!')
             return
         r = requests.get(url)
     except requests.exceptions.ConnectionError:
@@ -27,7 +27,7 @@ def shrani_spletno_stran(url, ime_datoteke, vsili_prenos=False):
         pripravi_imenik(ime_datoteke)
         with open(ime_datoteke, 'w', encoding='utf-8') as datoteka:
             datoteka.write(r.text)
-            print('shranjeno!')
+            #print('shranjeno!')
 
 
 def vsebina_datoteke(ime_datoteke):
