@@ -3,6 +3,7 @@ import json
 import re
 import orodja
 import matplotlib.pyplot as plt
+import string
 
 
 def zapisi_csv(slovarji, imena_polj, ime_datoteke):
@@ -279,6 +280,39 @@ def graf():
     plt.axis('equal')
     plt.show()
 
+
+            
+def stevilo_knjig_na_crko():
+    ''' vrne število knjig, katerih avtorji se začnejo na posamezno črko abecede. '''
+    with open('knjige21.csv', encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        knjige = []
+        crke = list(string.ascii_uppercase)
+        for crka in crke:
+            koliko = 0
+            stevec = 0
+            with open('knjige21.csv', encoding='utf-8') as csv_file:
+                csv_reader = csv.reader(csv_file, delimiter=',')
+                for vrstica in csv_reader:
+                    if stevec == 0:  # prve vrstice z imeni stolpcev ne štejemo
+                        pass
+                    elif len(vrstica) == 0:  # preskočimo prazne vrstice
+                        pass
+                    else:
+                        if vrstica[1][0] == crka:
+                            # vrstica[1][0] predstavlja prvo črko avtorja
+                            koliko += 1 # če je ta enaka trenutni črki, povečamo koliko za 1
+                    stevec += 1
+            knjige.append((crka, koliko)) # v seznam knjige dodamo par (črka, število knjig na to črko)
+        print(knjige)
+
+    '''
+    >>> stevilo_knjig_na_crko()
+    [('A', 74), ('B', 35), ('C', 83), ('D', 64), ('E', 33), ('F', 3), ('G', 27), ('H', 20), ('I', 9), ('J', 152), ('K', 68), ('L', 41), ('M', 67),
+    ('N', 41), ('O', 2), ('P', 41), ('Q', 0), ('R', 63), ('S', 107), ('T', 42), ('U', 2), ('V', 7), ('W', 10), ('X', 0), ('Y', 2), ('Z', 5)]
+    '''
+
+    
 print('\n'
       'Pomoc uporabniku: Program analizira najbolj priljubljene knjige 21. '
       'stoletja, kot so predstavljene na spletni strani Goodreads.\n'
@@ -307,6 +341,8 @@ print('\n'
       '\n'
       '-Ce vpisete "graf", vam bo prikazalo tortni diagram z delezi knjig na dolocenih intervalih ocen.\n'
       '\n'
+      '-Funkcija stevilo_knjig_na_crko() vrne število knjig, katerih avtorji se začnejo na posamezno črko abecede.\n'
+      '\n'
       'Za izhod vpisite "exit".'
       '\n')
 
@@ -333,6 +369,9 @@ while vnos[0] != "exit":
         razpored_knjig_po_oceni(float(args[0]))
     elif fun == 'razpored_knjig_ocena':
         razpored_knjig_ocena(float(args[0]))
+    elif fun == 'stevilo_knjig_na_crko':
+        stevilo_knjig_na_crko()
     elif fun == 'graf':
         graf()
+
 
