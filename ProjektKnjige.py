@@ -4,6 +4,7 @@ import re
 import orodja
 import matplotlib.pyplot as plt
 import string
+import numpy as np
 
 
 def zapisi_csv(slovarji, imena_polj, ime_datoteke):
@@ -281,7 +282,6 @@ def graf():
     plt.show()
 
 
-            
 def stevilo_knjig_na_crko():
     ''' vrne število knjig, katerih avtorji se začnejo na posamezno črko abecede. '''
     with open('knjige21.csv', encoding='utf-8') as csv_file:
@@ -311,6 +311,26 @@ def stevilo_knjig_na_crko():
     [('A', 74), ('B', 35), ('C', 83), ('D', 64), ('E', 33), ('F', 3), ('G', 27), ('H', 20), ('I', 9), ('J', 152), ('K', 68), ('L', 41), ('M', 67),
     ('N', 41), ('O', 2), ('P', 41), ('Q', 0), ('R', 63), ('S', 107), ('T', 42), ('U', 2), ('V', 7), ('W', 10), ('X', 0), ('Y', 2), ('Z', 5)]
     '''
+
+def prikaz_knjig_po_abecedi():
+    ''' Funkcija izriše graf, ki ima na x-osi posamezne črke abecede, na y-osi pa število knjig, katerih avtorji se začnejo na to črko. '''
+    knjige = [('A', 74), ('B', 35), ('C', 83), ('D', 64), ('E', 33), ('F', 3), ('G', 27), ('H', 20), ('I', 9), ('J', 152), ('K', 68), ('L', 41), ('M', 67),
+    ('N', 41), ('O', 2), ('P', 41), ('Q', 0), ('R', 63), ('S', 107), ('T', 42), ('U', 2), ('V', 7), ('W', 10), ('X', 0), ('Y', 2), ('Z', 5)]
+    visine = []
+    os = []
+    for crka in knjige:
+        visine.append(crka[1])
+        os.append(crka[0])
+    y_pos = np.arange(len(os))
+     
+    # Ustvarimo osi
+    plt.bar(y_pos, visine)
+     
+    # Ustvarimo oznake na x-osi
+    plt.xticks(y_pos, os)
+     
+    # Prikažemo graf
+    plt.show()
 
     
 print('\n'
@@ -343,6 +363,8 @@ print('\n'
       '\n'
       '-Funkcija stevilo_knjig_na_crko() vrne število knjig, katerih avtorji se začnejo na posamezno črko abecede.\n'
       '\n'
+      '-Funkcija prikaz_knjig_po_abecedi() izriše graf, ki ima na x-osi posamezne črke abecede, na y-osi pa število knjig, katerih avtorji se začnejo na to črko.\n'
+      '\n'
       'Za izhod vpisite "exit".'
       '\n')
 
@@ -371,7 +393,8 @@ while vnos[0] != "exit":
         razpored_knjig_ocena(float(args[0]))
     elif fun == 'stevilo_knjig_na_crko':
         stevilo_knjig_na_crko()
+    elif fun == 'prikaz_knjig_po_abecedi':
+        prikaz_knjig_po_abecedi()
     elif fun == 'graf':
         graf()
-
 
